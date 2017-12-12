@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
-
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -66,8 +66,12 @@
                                                 ### The Munge
 
                                                 - Clean HTML tags from the QAs
-                                                - 
-                                                - 
+                                                
+<pre class="prettyprint"><code class="lang-html">cleanHTML <- function(htmlString) {
+	return(gsub("<.*?>", "", htmlString))
+}</clean></pre>
+<pre class="prettyprint"><code class="language-r">print('hello world')</code></pre>
+<pre class="prettyprint"><code class="language-python">print('hello world')</code></pre>
                                         </textarea>
 				</section>
 				<section data-markdown>
