@@ -1,67 +1,67 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>ENTER: Rybot</title>
+        <title>ENTER: Rybot</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
-		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section data-markdown>
-					<textarea data-template>
-					### Building a Bot to Help You Code
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    <textarea data-template>
+                    ### Building a Bot to Help You Code
 
-					Mac Gray, David Duffrin, and Shane Caldwell
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-					### Documentation is slow
+                    Mac Gray, David Duffrin, and Shane Caldwell
+                    </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                    ### Documentation is slow
 
-					- Switching tabs to find documentation is slow
-					- We only want a small piece of what is presented to us (TLDR)
-					- Searching takes time
-					- Too easy to type in "Youtube.com"
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-					### What we want
+                    - Switching tabs to find documentation is slow
+                    - We only want a small piece of what is presented to us (TLDR)
+                    - Searching takes time
+                    - Too easy to type in "Youtube.com"
+                    </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                    ### What we want
 
-					A bot that can help us find answers to our questions
+                    A bot that can help us find answers to our questions
 
-					- Using an interface we already like
-					- Succinctly
-					- Without falling into the rabbit hole that is the internet.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### The Data
+                    - Using an interface we already like
+                    - Succinctly
+                    - Without falling into the rabbit hole that is the internet.
+                    </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        ### The Data
 
-						- Kaggle's StackOverflow dataset
-						- From 2009 to 2016
-						- Over 42,000,000 questions and their answers.
-					</textarea>
-				</section>
-				<section data-markdown>
+                        - Kaggle's StackOverflow dataset
+                        - From 2009 to 2016
+                        - Over 42,000,000 questions and their answers.
+                    </textarea>
+                </section>
+                <section data-markdown>
                     <textarea data-template>
                         ### The Munge
 
@@ -69,37 +69,37 @@
 
                         ```R
                         cleanHTML <- function(htmlString) {
-		return(gsub("<.*?>", "", htmlString))
+        return(gsub("<.*?>", "", htmlString))
 }```
                     </textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### What's relevant?
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        ### What's relevant?
 
-						- Data Science moves pretty fast
-						- Old Data Science techniques kind of get left in the dust
-						- We want to start at 2012 - 2016
-						- We're pretty sure everything before that is Java, C# and other... undesirables
-					</textarea>
-				</section>
-				<section>
-					<h3>Density plot</h3>
-					<li>What's tag distribution look like</li>
-					<img data-src="img/densitycut.png">
-				</section>
+                        - Data Science moves pretty fast
+                        - Old Data Science techniques kind of get left in the dust
+                        - We want to start at 2012 - 2016
+                        - We're pretty sure everything before that is Java, C# and other... undesirables
+                    </textarea>
+                </section>
+                <section>
+                    <h3>Density plot</h3>
+                    <li>What's tag distribution look like</li>
+                    <img data-src="img/densitycut.png">
+                </section>
 
-				<section>
-					<h3>What tags are used most often?</h3>
-					<li>The answers... won't surprise you</li>
-					<img data-src="img/TopTen.png">
-				</section>
-				<section>
-					<h3>Average tags per post</h3>
-					<li>Number of tags actually shows a normal distribution. </li>
-					<img data-src="img/tagsnormal.png">
-				</section>
-				<section data-markdown>
+                <section>
+                    <h3>What tags are used most often?</h3>
+                    <li>The answers... won't surprise you</li>
+                    <img data-src="img/TopTen.png">
+                </section>
+                <section>
+                    <h3>Average tags per post</h3>
+                    <li>Number of tags actually shows a normal distribution. </li>
+                    <img data-src="img/tagsnormal.png">
+                </section>
+                <section data-markdown>
                     <textarea data-template>
                         ### Can we draw conclusions on what makes a good answer?
 
@@ -110,28 +110,28 @@
 
                         ### Never again
                     </textarea>
-				</section>
-				<section data-markdown>
+                </section>
+                <section data-markdown>
                     <textarea data-template>
                         ### The Tech
-												- keras
+                        - keras
                         - Word2Vec/Doc2Vec
                         - gensim
                     </textarea>
-				</section>
-				<section data-markdown>
+                </section>
+                <section data-markdown>
                     <textarea data-template>
-											<h3>t-SNE Attempt</h3>
-											<img data-src="img/attempt.png">
+                                            <h3>t-SNE Attempt</h3>
+                                            <img data-src="img/attempt.png">
                     </textarea>
-				</section>
-				<section data-markdown>
+                </section>
+                <section data-markdown>
                     <textarea data-template>
-											<h3>How t-SNE should look</h3>
-											<img data-src="img/perfection.png">
+                                            <h3>How t-SNE should look</h3>
+                                            <img data-src="img/perfection.png">
                     </textarea>
-				</section>
-				<section data-markdown>
+                </section>
+                <section data-markdown>
                     <textarea data-template>
                         ### The Results
 
@@ -139,33 +139,33 @@
                         - Synonyms (cosine difference)
                         - Analogies (Parallel Vectors)
                     </textarea>
-				</section>
-				<section data-markdown>
+                </section>
+                <section data-markdown>
                     <textarea data-template>
                         ### The End
 
                         - We Done
                         - Questions?
                     </textarea>
-				</section>
-			</div>
-		</div>
+                </section>
+            </div>
+        </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
 </html>
