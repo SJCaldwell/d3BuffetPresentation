@@ -66,12 +66,12 @@
                         ### The Munge
 
                         - Clean HTML tags from the QAs
-                                                
-						<pre class="prettyprint"><code class="lang-html">cleanHTML <- function(htmlString) {
-							return(gsub("<.*?>", "", htmlString))
-						}</clean></pre>
-						<pre class="prettyprint"><code class="language-r">print('hello world')</code></pre>
-						<pre class="prettyprint"><code class="language-python">print('hello world')</code></pre>
+
+                        ```R
+                        cleanHTML <- function(htmlString) {
+		return(gsub("<.*?>", "", htmlString))
+						}
+                        ```
                     </textarea>
 				</section>
 				<section data-markdown>
@@ -105,8 +105,11 @@
                         ### Can we draw conclusions on what makes a good answer?
 
                         - Is there an association between score and length?
-                        - Is there a 
-                        - Over 42,000,000 questions and their answers.
+                        - Created linear regression using length of question to predict score. 
+                        - R^2 was around a .12 so uh... 
+                        - Friends don't let friends do NLP with linear regression
+
+                        ### Never again
                     </textarea>
 				</section>
 				<section data-markdown>
