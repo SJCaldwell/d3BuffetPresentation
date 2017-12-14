@@ -26,7 +26,7 @@
 			<div class="slides">
 				<section data-markdown>
 					<textarea data-template>
-					### Building a Bot to Help You Code 
+					### Building a Bot to Help You Code
 
 					Mac Gray, David Duffrin, and Shane Caldwell
 					</textarea>
@@ -38,7 +38,7 @@
 					- Switching tabs to find documentation is slow
 					- We only want a small piece of what is presented to us (TLDR)
 					- Searching takes time
-					- Too easy to type in "Youtube.com" 
+					- Too easy to type in "Youtube.com"
 					</textarea>
 				</section>
 				<section data-markdown>
@@ -48,7 +48,7 @@
 					A bot that can help us find answers to our questions
 
 					- Using an interface we already like
-					- Succinctly 
+					- Succinctly
 					- Without falling into the rabbit hole that is the internet.
 					</textarea>
 				</section>
@@ -70,8 +70,7 @@
                         ```R
                         cleanHTML <- function(htmlString) {
 		return(gsub("<.*?>", "", htmlString))
-						}
-                        ```
+}```
                     </textarea>
 				</section>
 				<section data-markdown>
@@ -79,9 +78,9 @@
 						### What's relevant?
 
 						- Data Science moves pretty fast
-						- Old Data Science techniques kind of get left in the dust  
+						- Old Data Science techniques kind of get left in the dust
 						- We want to start at 2012 - 2016
-						- We're pretty sure everything before that is Java, C# and other... undesirables  
+						- We're pretty sure everything before that is Java, C# and other... undesirables
 					</textarea>
 				</section>
 				<section>
@@ -93,7 +92,7 @@
 				<section>
 					<h3>What tags are used most often?</h3>
 					<li>The answers... won't surprise you</li>
-					<img data-src="img/TopTen.png">	
+					<img data-src="img/TopTen.png">
 				</section>
 				<section>
 					<h3>Average tags per post</h3>
@@ -105,8 +104,8 @@
                         ### Can we draw conclusions on what makes a good answer?
 
                         - Is there an association between score and length?
-                        - Created linear regression using length of question to predict score. 
-                        - R^2 was around a .12 so uh... 
+                        - Created linear regression using length of question to predict score.
+                        - R^2 was around a .12 so uh...
                         - Friends don't let friends do NLP with linear regression
 
                         ### Never again
@@ -115,19 +114,21 @@
 				<section data-markdown>
                     <textarea data-template>
                         ### The Tech
-
+												- keras
                         - Word2Vec/Doc2Vec
-                        - From 2009 to 2016
-                        - Over 42,000,000 questions and their answers.
+                        - gensim
                     </textarea>
 				</section>
 				<section data-markdown>
                     <textarea data-template>
-                        ### The Viz
-
-                        - pic1
-                        - pic2
-                        - pic3
+											<h3>t-SNE Attempt</h3>
+											<img data-src="img/attempt.png">
+                    </textarea>
+				</section>
+				<section data-markdown>
+                    <textarea data-template>
+											<h3>How t-SNE should look</h3>
+											<img data-src="img/perfection.png">
                     </textarea>
 				</section>
 				<section data-markdown>
