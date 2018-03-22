@@ -26,115 +26,145 @@
             <div class="slides">
                 <section data-markdown>
                     <textarea data-template>
-                    ### Building a Bot to Help You Code
+                    ### d3.js Buffet
 
-                    Mac Gray, David Duffrin, and Shane Caldwell
+                    Shane Caldwell and Roger Filmyer
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                    ### Documentation is slow
+                       # JavaScript:
 
-                    - Switching tabs to find documentation is slow
-                    - We only want a small piece of what is presented to us (TLDR)
-                    - Searching takes time
-                    - Too easy to type in "Youtube.com"
+                        - Interpreted language used primarily within the browser
+                        - Manipulates the DOM (Document Object Model)
+                        - Asynchronously shuffles data from client to server
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                    ### What we want
+                        # Why JavaScript:
 
-                    A bot that can help us find answers to our questions
-
-                    - Using an interface we already like
-                    - Succinctly
-                    - Without falling into the rabbit hole that is the internet.
+                        - Disable JavaScript in your browser, and you're left with HTML and CSS
+                        - This sets style (so things can still be pretty) but they're no responsive to user action
+                        - JavaScript is often what enables you to go from web-site to web-application
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        ### The Data
+                        # Visualizations on the web:
 
-                        - Kaggle's StackOverflow dataset
-                        - From 2009 to 2016
-                        - Over 42,000,000 questions and their answers.
+                        - Check out a cool pudding article like[The Differences in How CNN, MSNBC, and FOX Cover the News](https://pudding.cool/2018/01/chyrons/)
+                        - Look at the way the DOM reacts to us - making the web page interactive. 
+                        - These are made with D3
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        ### The Munge
+                        # Why not Plotly?
 
-                        - Clean HTML tags from the QAs
-
-                        ```R
-                        cleanHTML <- function(htmlString) {
-        return(gsub("<.*?>", "", htmlString))
-}```
+                        - Plotly provides an API to create D3 charts and applications
+                        - For basic things, this is easier then trying to make things work in JavaScript
+                        - For specific, weird visualizations, you want access to the full power of D3 - and that means writing it yourself. 
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        ### What's relevant?
+                        # Pre-requisites - After doing your class reading you should know:
 
-                        - Data Science moves pretty fast
-                        - Old Data Science techniques kind of get left in the dust
-                        - We want to start at 2012 - 2016
-                        - We're pretty sure everything before that is Java, C# and other... undesirables
-                    </textarea>
-                </section>
-                <section>
-                    <h3>Density plot</h3>
-                    <li>What's tag distribution look like</li>
-                    <img data-src="img/densitycut.png">
-                </section>
-
-                <section>
-                    <h3>What tags are used most often?</h3>
-                    <li>The answers... won't surprise you</li>
-                    <img data-src="img/TopTen.png">
-                </section>
-                <section>
-                    <h3>Average tags per post</h3>
-                    <li>Number of tags actually shows a normal distribution. </li>
-                    <img data-src="img/tagsnormal.png">
-                </section>
-                <section data-markdown>
-                    <textarea data-template>
-                        ### Can we draw conclusions on what makes a good answer?
-
-                        - Is there an association between score and length?
-                        - Created linear regression using length of question to predict score.
-                        - R^2 was around a .12 so uh...
-                        - Friends don't let friends do NLP with linear regression
-
-                        ### Never again
+                        - How to write basic JavaScript
+                        - How to get basic JavaScript to run in the browser                    
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        ### The Tech
-                        - keras
-                        - Word2Vec/Doc2Vec
-                        - gensim
+                            # Let's test that theory:
+
+                            - ```git clone https://github.com/SJCaldwell/d3_tutorial.git```
+                            - cd into d3_tutorial
+                            - Run ```python -m SimpleHTTPServer 8080```
+                            - Look in folder Section1_Intro
+                            - There are 3 exercises here, each in their own html file. Once you have completed the exercise, it will display EXERCISE COMPLETED when you load the page. 
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                                            <h3>t-SNE Attempt</h3>
-                                            <img data-src="img/attempt.png" width="75%">
+                            # So What does D3 Use?
+                
+                            - HTML: Determines structure of the web page
+                            - CSS: Sets the style
+                            - JavaScript: Allows interactive updates to the DOM
+                            - SVG (Scalable Vector Graphics): Text-based image format
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                                            <h3>How t-SNE should look</h3>
-                                            <img data-src="img/perfection.png">
+                            # Little more on SVG
+
+                            - [Show little snippet of SVG here]
+                            - SVG is XML based 
+                            - rect, circle, ellipse, line, text, and path are all valid shapes
+                            - Your visualizations are made by drawing these shapes and updating them with JavaScript
                     </textarea>
                 </section>
-								<section data-markdown>
+                <section data-markdown>
                     <textarea data-template>
-                                            <h3>TF-IDF</h3>
-                                            <img data-src="img/tfidf.png">
+                            # General flow of d3:
+                            
+                            - Read in your data
+                            - Bind it to SVGs
+                            - Scale your data before drawing so your visualization is robust
+                            - Label your axes
+                    </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                            # Creating elements in d3
+                            
+                            - d3 gives you the ability to create new elements before binding them to data
+                            ```JavaScript
+                            d3.select("body")
+                              .append("p")
+                              .text("New Paragraph")
+                            ```
+                            - This is called chain syntax 
+                    </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                            # Chain syntax
+
+                            - Kind of like using pipes in R. 
+                            - Not absolutely necessary, but sooo much prettier
+                            - You can do: 
+
+                            ```JavaScript
+                            var body = d3.select("body")
+                            var p = body.append("p")
+                            p.text("New paragraph")
+                            ```
+
+                            - But you don't actually want all those variables!                     
+                        </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                            # Update the DOM with d3
+
+                            - Look in Section2_ReadData
+                            - Open exercise 1.html
+                            - Right now, you should see the new paragraph added like we showed in the slide.
+                            - Change this code so instead, there is an <h1> tag that says "New Header"
+                    </textarea>
+                </section>
+				<section data-markdown>
+                    <textarea data-template>
+                            # Read in Data
+
+                            - D3 is pretty smart, and has been built to read lots of formats. 
+                            - CSV with ```d3.csv()```
+                            - JSON with ```d3.json()```
+                            - TSV with ```d3.tsv()```
+                            - You get the idea, perhaps?
                     </textarea>
                 </section>
                 <section data-markdown>
@@ -146,11 +176,15 @@
                         - Analogies (Parallel Vectors)
                     </textarea>
                 </section>
-								<section data-markdown>
+				<section data-markdown>
                     <textarea data-template>
-                                            <h3>Cherrypicked Analogy</h3>
-                                            <img data-src="img/good_stuff.png">
-                    </textarea>
+                        # So let's read in data
+
+                        - look in Section2_ReadData
+                        - Open exercise2.html
+                        - As soon as you browser to the html, your data is read in. Nice!
+                        - The exercise here is instead to tell me what you can learn about the data structure d3 uses after the data is read in.
+                        - You got 5 minutes to tell us what cool things you've learned. GO GO GO!                    </textarea>
                 </section>
 								<section data-markdown>
                     <textarea data-template>
