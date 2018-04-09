@@ -36,21 +36,43 @@
                         ### You know the deal 
 
                         - Clone the repo 
-                        - Run python to load up the ```python -m SimpleHTTPServer 8081```
+                        - ``git clone https://github.com/SJCaldwell/d3_tutorial``
+                        - ``cd d3_tutorial``
+                        - Throw up a python server: ``python -m SimpleHTTPServer 8081``
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        ### We promised you some SVG 
-
+                        ### We promised you some SVG
+                        - Scalable Vector Graphics
+                        - XML based vector image format
+                        ```html
+                        <svg width="50" height="50">
+                            <circle cx="25" cy="25" r="22" fill ="purple" stroke="gray" stroke-width="2"/>
+                        </svg>
+                        ``` 
+                        - Sketch, Inkscape, and Adobe Illustrator generate stuff like this
                     </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        # SVG info 
+                        ### SVG info 
+                        - Text based image formats
+                        - SVG element specifies the size the shapes can take up within it
+                        - Then children of the svg tags can be one of several elements
 
                     </textarea>
                 </section>
+                <section data-markdown>
+                        <textarea data-template>
+                            ### Types of SVG images
+                            - Rectangles ``<rect>``
+                            - Circle ``<circle>``
+                            - Ellipses ``<ellipse>``
+                            - Lines ``<line>``
+                            - Text ``<Text>``
+                        </textarea>
+                    </section>
                 <section data-markdown>
                     <textarea data-template>
                         # SVG Exercise 1
@@ -195,15 +217,14 @@
                                 ### Eureka
 
                                 ![](img/data_driven_bars.png)
-                                
+
                                 ```JavaScript
                                 var dataset = [5, 2, 8, 1, 7];
 
                                 ```
-
                                 </textarea>
                             </section>
-
+                            
             </div>
         </div>
 
