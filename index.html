@@ -77,7 +77,6 @@
                         <textarea data-template>
                             ### This requires callbacks
     
-    
                         </textarea>
                     </section>
                 <section data-markdown>
@@ -92,12 +91,7 @@
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        ### Let's read in csv
-                    </textarea>
-                </section>
-                <section data-markdown>
-                    <textarea data-template>
-                        # Read in Data
+                        ### Read in Data
 
                         - D3 is pretty smart, and has been built to read lots of formats. 
                         - CSV with ```d3.csv()```
@@ -108,7 +102,7 @@
                 </section>
                 <section data-markdown>
                         <textarea data-template>
-                        # So let's read in data
+                        ### So let's read in data
 
                         - look in Section2_ReadData
                         - Open exercise2.html
@@ -120,20 +114,96 @@
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-                        ### Dopest
+                        ### Time for actual visualizations
         
-                        - We Done
-                        - Questions?
+                        - We start with the humble bar chart
+                        - Truly a simple visualization
+                        - Should be easy, right?
                     </textarea>
                 </section>
                 <section data-markdown>
-                    <textarea data-template>
-                        ### The End
+                        <textarea data-template>
+                        ![](img/the_gang_complicates_barchart.png)
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                            <textarea data-template>
+                            ### Baby's first dataset 
 
-                        - We Done
-                        - Questions?
+                            ```JavaScript
+                            var dataset = [5, 2, 8, 1, 7];
+                            ```
+                            </textarea>
+                        </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        ### First, make our SVG
+                        ```JavaScript
+                        var w = 500;
+                        var h = 100;
+
+                        var svg = d3.select("body")
+                            .append("svg")
+                            .attr("width", w)
+                            .attr("height", h);
+                        ```
                     </textarea>
                 </section>
+                <section data-markdown>
+                        <textarea data-template>
+                            ### Then, make our bars
+                            ```JavaScript
+                            svg.selectAll("rect")
+                              .data(dataset)
+                              .enter()
+                              .append("rect")
+                              .attr("x", 0)
+                              .attr("y", 0)
+                              .attr("width", 20)
+                              .attr("height", 100);
+                            ```
+                        </textarea>
+                    </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        ### 15 lines of code gets us...
+
+                        ![](img/lonely_bar.png)
+                        
+                        - Saddest bar I've seen since memories
+                        - Or that 2nd verse of Kanye's "blame game"
+
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                            <textarea data-template>
+                                ```JavaScript
+                                .attr("x", function(d, i){
+                                    return i * (w/dataset.length);
+                                })
+                                .attr("y", function(d){
+                                    return h - d;
+                                })
+                                .attr("height", function(d){
+                                    return d * 4;
+                                })
+                                ```
+                                </textarea>
+                            </section>
+                    <section data-markdown>
+                            <textarea data-template>
+                                ### Eureka
+
+                                ![](img/data_driven_bars.png)
+                                
+                                ```JavaScript
+                                var dataset = [5, 2, 8, 1, 7];
+
+                                ```
+
+                                </textarea>
+                            </section>
+
             </div>
         </div>
 
