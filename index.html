@@ -320,6 +320,51 @@
                                 - Instructions in exercise repo
                                 - Let's see how the bar chart holds up
                             </textarea>
+                        </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Axes
+
+                            ![](img/axisofevil.jpg)
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### How to do them:
+```
+// JUST COPY THIS CODE LOOOOOOOOOOOOL
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10, "%"))
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Frequency");
+```
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### But really...
+```
+  g.append("g")                       // Create a group
+      .attr("class", "axis axis--y")  // Assign classes (for CSS)
+      .call(d3.axisLeft(y).ticks(10, "%"))  // Call axisLeft
+    .append("text")                   // Add a label
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")           // Positioning
+      .attr("text-anchor", "end")
+      .text("Frequency");             // The actual label text
+```
+                        </textarea>
                     </section>
                 <section data-markdown>
                     <textarea data-template>
@@ -357,9 +402,17 @@
                     </section>
                     <section data-markdown>
                         <textarea data-template>
+                            ### Force Diagram Exercises
+
+                            Look at `Section4_Force/README.md`
+
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
                             ### So what now?
 
-                            You are now a master in D3. Do not let you tell yourself otherwise. Go get a data journalist job.
+                            You are now a master in D3. Do not tell yourself otherwise. Go get a data journalist job.
 
                         </textarea>
                     </section>
@@ -383,13 +436,19 @@
             // More info about config & dependencies:
             // - https://github.com/hakimel/reveal.js#configuration
             // - https://github.com/hakimel/reveal.js#dependencies
+
+            const revealHeight = 700;
+            const revealWidth = revealHeight * (15/9);
+
             Reveal.initialize({
                 dependencies: [
                     { src: 'plugin/markdown/marked.js' },
                     { src: 'plugin/markdown/markdown.js' },
                     { src: 'plugin/notes/notes.js', async: true },
                     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-                ]
+                ],
+                width: revealWidth,
+                height: revealHeight
             });
         </script>
     </body>
