@@ -135,8 +135,42 @@
                     <textarea data-template>
                     ### Anatomy of d3 
 
-                    - what do we get
-                    - neat
+                    - ``Data`` is an array
+                    - Each object has a "name" and "dope_meter" property.
+                    - Everything stored as string (even numbers)
+                    - An object for columns, an array of each column name.
+                </textarea>
+            </section>
+            <section data-markdown>
+                <textarea data-template>
+                ### I can't graph strings!
+
+                - Very true
+                - D3 let's us pass an additional function to the reader, allowing us to convert data types if necessary. 
+            </textarea>
+        </section>
+        <section data-markdown>
+            <textarea data-template>
+                ### Parser 
+                ```JavaScript 
+                var rowConverter = function(d) {
+                    return{
+                        name: d.name,
+                        dope_meter: parseInt(d.dope_meter)
+                    };
+                }
+                ```
+            </textarea>
+        </section>
+        <section data-markdown>
+                <textarea data-template>
+                    ### And then plug it in
+                    ```                        
+                    d3.csv("very_exciting.csv", rowConverter, function(data) {
+                        console.log(data);
+                    });
+                    ```
+                    ![](img/simple_innit.gif)
                 </textarea>
             </section>
                 <section data-markdown>
